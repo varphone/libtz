@@ -50,6 +50,18 @@ AM_CONDITIONAL([HAVE_UNIX], test "x$SYS" = xlinux)
 AM_CONDITIONAL([HAVE_WIN32], test "x$SYS" = xmingw32 -a "x$ARCH" = xi686)
 AM_CONDITIONAL([HAVE_WIN64], test "x$SYS" = xmingw32 -a "x$ARCH" = xx86_64)
 
+# test
+AC_ARG_ENABLE([test],
+    [AS_HELP_STRING([--enable-test],[build with test (default=yes)])],
+    [case "${enableval}" in
+        yes) enable_test=true ;;
+        no)  enable_test=false ;;
+        *) AC_MSG_ERROR([bad value ${enableval} for --enable-test]) ;;
+     esac],
+    [enable_test=true]
+)
+AM_CONDITIONAL([ENABLE_TEST], [test x$enable_test = xtrue])
+
 AC_CONFIG_FILES([
 Makefile
 tz.pc

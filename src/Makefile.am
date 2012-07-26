@@ -1,19 +1,20 @@
 ACLOCAL_AMFLAGS = -I m4
 AM_CFLAGS =
 
+if ENABLE_TEST
 noinst_PROGRAMS = tz_test
-lib_LTLIBRARIES = libtz.la
-
 tz_test_SOURCES = tz_test.c
 tz_test_CFLAGS = -include $(top_builddir)/config.h
 tz_test_LDADD = libtz.la
 tz_test_DEPENDENCIES = libtz.la
+endif
 
 # includes
 tzincdir = $(includedir)/tz
 tzinc_HEADERS = tz.h
 
-libtz_la_SOURCES = tz.c $(vectorinc_HEADERS)
+lib_LTLIBRARIES = libtz.la
+libtz_la_SOURCES = tz.c $(tzinc_HEADERS)
 libtz_la_CFLAGS = -include $(top_builddir)/config.h
 libtz_la_LIBADD =
 if HAVE_UNIX
