@@ -27,7 +27,7 @@ AC_PROG_LIBTOOL
 # Checks for libraries.
 
 # Checks for header files.
-AC_CHECK_HEADERS([stdlib.h string.h sys/time.h])
+AC_CHECK_HEADERS([regex.h stdlib.h string.h sys/time.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 

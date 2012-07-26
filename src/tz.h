@@ -3,6 +3,8 @@
 
 #ifdef HAVE_SYS_TIME_H
 #include <sys/time.h>
+#else
+struct timezone;
 #endif
 
 typedef void* tzinfo_t;     ///< Timezone information.
